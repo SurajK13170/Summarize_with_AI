@@ -4,8 +4,6 @@ body {
   background: linear-gradient(135deg, #f3f4f6, #e2e3e5);
   margin: 0;
   padding: 0;
-  display: flex;
-  align-items: center;
   justify-content: center;
   min-height: 100vh;
 }
@@ -104,17 +102,7 @@ body {
 }
 
 
-/* General Styles */
-body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #f3f4f6, #e2e3e5);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
+
 
 .auth-container {
   display: flex;

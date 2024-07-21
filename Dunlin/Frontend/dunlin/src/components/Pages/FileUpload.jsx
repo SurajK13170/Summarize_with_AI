@@ -115,9 +115,29 @@ const FileUpload = () => {
     }
   };
 
+  const deleteSummaryById = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:8080/upload/history/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      if (response.ok) {
+        setSummaries(summaries.filter(item => item._id !== id));
+      } else {
+        const data = await response.json();
+        setError(data.error || 'Error deleting summary.');
+      }
+    } catch (error) {
+      setError('Error deleting summary. Please try again.');
+      console.error(error);
+    }
+  };
+
   return (
     <div className="container">
-      <History summaries={summaries} fetchSummaryById={fetchSummaryById} />
+      <History summaries={summaries} fetchSummaryById={fetchSummaryById} deleteSummaryById={deleteSummaryById} />
       <div className="form-container">
         <h1 className="title">Upload File or Enter Text for Summarization</h1>
         <form onSubmit={handleSubmit} className="upload-form">

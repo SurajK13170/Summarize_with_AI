@@ -45,14 +45,12 @@ uploadRoute.post('/', upload.single('file'),auth, async (req, res) => {
     }
 
 
-    // Send the file content to the AI service
     const model = await genAI.getGenerativeModel({ model: 'gemini-pro' });
     const result = await model.generateContent(`you have to do text summarization and analysis
     on the text that I have provided. The text is as follows: ${fileContent}`);
     const post = result.response.text();
 
     const newUpload = new UploadModel({
-      // user: req.body.userID,
       originalText: fileContent,
       summarizedText: post,
       insights: {},
@@ -89,9 +87,23 @@ uploadRoute.get('/history/:id',auth, async (req, res) => {
     if (!summary) {
       return res.status(404).json({ error: 'Summary not found.' });
     }
-    res.json(summary);
+    res.status(200).json(summary);
   } catch (error) {
     res.status(500).json({ error: 'Error fetching summary.' });
+  }
+});
+
+
+uploadRoute.delete('/history/:id',auth, async (req, res) => {
+  const {id} = req.params
+  try {
+    const summary = await UploadModel.findByIdAndDelete({_id:id});
+    if (!summary) {
+      return res.status(404).json({ error: 'Summary not found.' });
+    }
+    res.status(200).json({ message: 'Summary deleted successfully.' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error deleting summary.' });
   }
 });
 
