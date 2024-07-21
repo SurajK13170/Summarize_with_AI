@@ -1,0 +1,122 @@
+/* FileUpload.css */
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+  flex: 1;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #124f5e;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text-input {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  resize: vertical;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+.text-input:focus {
+  border-color: #2f4257;
+  outline: none;
+}
+
+.dropzone {
+  border: 2px dashed #162534;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f0f8ff;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.dropzone:hover {
+  background-color: #e0f7ff;
+}
+
+.dropzone.file-selected {
+  border-color: rgb(47, 47, 110);
+  background-color: #e9fbe9;
+}
+
+.file-label {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.file-label:hover {
+  background-color: rgb(47, 47, 110);
+}
+
+.submit-button {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(47, 47, 110);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.submit-button:hover {
+  background-color: rgb(37, 37, 88);
+  transform: scale(1.02);
+}
+
+.loading {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loading img {
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+}
+
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  font-weight: bold;
+}
+
+.success-message {
+  color: #28a745;
+  text-align: center;
+  font-weight: bold;
+}
+
+.summary-container {
+  margin-top: 20px;
+}
+
+.summary-container h2 {
+  margin-bottom: 10px;
+}
