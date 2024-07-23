@@ -15,11 +15,6 @@ app.use("/upload", uploadRoute)
 
 
 
-app.get("/", auth, async(req, res) => {
-    res.send("Welcome to backend")
-})
-
-
 app.listen(port, async () => {
     try {
         await connection
